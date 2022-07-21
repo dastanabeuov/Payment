@@ -26,6 +26,7 @@ module Payment
                        view_specs: false,
                        helper_specs: false,
                        routng_specs: false,
+                       request_specs: false,
                        controller_specs: false
     end
   end
