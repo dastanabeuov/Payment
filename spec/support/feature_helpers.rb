@@ -3,7 +3,7 @@ module FeatureHelpers
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_on 'Log in'
+    click_on 'Sign in'
   end
 
   def sign_up(user)
@@ -12,8 +12,5 @@ module FeatureHelpers
     fill_in 'Password', with: user.password
     fill_in 'Password confirmation', with: user.password_confirmation
     click_button 'Sign up'
-    open_email(user.email)
-    current_email.click_link 'Confirm my account'
-    visit user_confirmation_path(confirmation_token: email_token)
   end
 end

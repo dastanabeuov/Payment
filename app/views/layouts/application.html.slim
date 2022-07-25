@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Payment
+    meta content="width=device-width,initial-scale=1" name="viewport"
+    = csrf_meta_tags
+    = csp_meta_tag
+    
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+  body
+    = render 'shared/header'
+    main.container
+      #flash
+        = render 'shared/flash'
+      = yield
+    = render 'shared/footer'
