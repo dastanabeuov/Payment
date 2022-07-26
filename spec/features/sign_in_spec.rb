@@ -6,7 +6,6 @@ feature 'User can (sign_up/sign_in/sign_out)' do
  
   it 'sign up' do
     sign_up(user)
-    #save_and_open_page
     expect(page).to have_content('Welcome! You have signed up successfully.')
   end
 
@@ -18,7 +17,6 @@ feature 'User can (sign_up/sign_in/sign_out)' do
   it 'sign out' do
     sign_in(user)
     visit(root_path)
-    #save_and_open_page
     click_on('Sign out')
     expect(page).to have_content('Signed out successfully.')
   end
