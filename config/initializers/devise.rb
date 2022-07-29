@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# ! Create custom failure for turbo
 class TurboFailureApp < Devise::FailureApp
   def respond
     if request_format == :turbo_stream
@@ -33,7 +32,7 @@ Devise.setup do |config|
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-
+  
   # ! Change parent controller with custom controller
   config.parent_controller = 'Users::DeviseController'
 
@@ -280,8 +279,9 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
+  
+  #! Override navigational_formats
 
-  # ! Override navigational_formats
   config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
