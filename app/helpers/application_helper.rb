@@ -11,4 +11,8 @@ module ApplicationHelper
       'alert-danger'
     end
   end
+
+  def admin?(object)
+    object.type == 'Admin'
+  end
 end

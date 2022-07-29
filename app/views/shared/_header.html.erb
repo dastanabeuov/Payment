@@ -7,6 +7,7 @@
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-secondary' %></li>
+        <li><%= link_to 'Merchants', merchants_path, class: 'nav-link px-2 text-white' %></li>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -14,15 +15,37 @@
       </form>
 
       <div class="text-end">
-        <% if user_signed_in? %>
+        <% if merchant_signed_in? %>
           <div class="dropdown">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Settings</a></li>
+              <li><%= link_to 'Settings', edit_merchant_registration_path, class: 'dropdown-item' %></li>
               <li><hr class="dropdown-divider"></li>
-              <li><%= button_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, title: "Sign out", alt: "Logout", class: "dropdown-item" %></li>
+              <li><%= button_to 'Sign out', destroy_merchant_session_path, method: :delete, data: { confirm: 'Are you sure?' }, title: "Sign out", alt: "Logout", class: "dropdown-item" %></li>
+            </ul>
+          </div>
+        <% elsif admin_signed_in? %>
+          <div class="dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><%= link_to 'Settings', edit_admin_registration_path, class: 'dropdown-item' %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= button_to 'Sign out', destroy_admin_session_path, method: :delete, data: { confirm: 'Are you sure?' }, title: "Sign out", alt: "Logout", class: "dropdown-item" %></li>
+            </ul>
+          </div>
+        <% elsif user_signed_in? %>
+          <div class="dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><%= link_to 'Settings', edit_user_registration_path, class: 'dropdown-item' %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= button_to 'Sign out', destroy_admin_session_path, method: :delete, data: { confirm: 'Are you sure?' }, title: "Sign out", alt: "Logout", class: "dropdown-item" %></li>
             </ul>
           </div>
         <% else %>
