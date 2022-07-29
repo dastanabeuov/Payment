@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_26_110204) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_07_29_153940) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "amount", default: 0
+    t.integer "status", default: 0
+    t.string "customer_email"
+    t.string "customer_phone"
+    t.uuid "merchant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["merchant_id"], name: "index_transactions_on_merchant_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
