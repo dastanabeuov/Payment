@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'MERCHANT DESTROY', %q(
+feature 'MERCHANT DESTROY', '
   Admin destroy
   Not admin try destroy
-) do
-
+' do
   let(:admin) { create(:admin) }
   let(:user) { create(:user) }
   let(:merchant) { create(:merchant) }

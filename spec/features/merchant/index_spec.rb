@@ -2,11 +2,10 @@
 
 require 'rails_helper'
 
-feature 'MERCHANT INDEX', %q(
+feature 'MERCHANT INDEX', '
   Merchant list
   Merchant list with btn for admin
-) do
-
+' do
   let(:user) { create(:user) }
   let(:admin) { create(:admin) }
   let!(:merchants) { create_list(:merchant, 2) }

@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'MERCHANT CREATE', %q(
+feature 'MERCHANT CREATE', '
   Admin create
   Admin create with errors
-) do
-
+' do
   let(:admin) { create(:admin) }
 
   it 'Admin create' do

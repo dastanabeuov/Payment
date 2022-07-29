@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'MERCHANT UPDATE', %q(
+feature 'MERCHANT UPDATE', '
   Author edit
   Admin edit
   Not author try edit
-) do
-
+' do
   let(:merchant) { create(:merchant) }
   let(:user) { create(:user) }
   let(:admin) { create(:admin) }

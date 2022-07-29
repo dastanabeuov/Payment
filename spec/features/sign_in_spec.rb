@@ -7,7 +7,6 @@ feature 'User can', '
   sign_in
   sign_out
 ' do
-
   let(:user) { create(:user) }
 
   it 'sign up' do
