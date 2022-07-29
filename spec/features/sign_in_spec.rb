@@ -1,9 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can (sign_up/sign_in/sign_out)' do
+feature 'User can', '
+  sign_up
+  sign_in
+  sign_out
+' do
 
   let(:user) { create(:user) }
- 
+
   it 'sign up' do
     sign_up(user)
     expect(page).to have_content('Welcome! You have signed up successfully.')

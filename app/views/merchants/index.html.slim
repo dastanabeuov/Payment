@@ -1,0 +1,10 @@
+h1 Merchants
+
+#merchants
+  - @merchants.each do |merchant|
+    = render merchant
+    p
+      = link_to "Show this merchant", merchant
+
+-if admin?(current_user)
+  = link_to "New merchant", new_merchant_path, class: 'btn-outline-primary'
