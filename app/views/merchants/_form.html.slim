@@ -1,0 +1,26 @@
+= form_with(model: @merchant) do |form|
+  = render 'shared/errors', object: @merchant
+
+  .form-group
+    = f.label :email, class: 'form-label'
+    = f.email_field :email, class: 'form-control'
+
+  - if admin?(current_user)
+    .form-group
+      = f.label :password, class: 'form-label'
+      = f.password_field :password, class: 'form-control'
+
+    .form-group
+      = f.label :password_confirmation, class: 'form-label'
+      = f.password_field :password_confirmation, class: 'form-control'
+
+  .form-group
+    = form.label :name, class: 'form-label'
+    = form.text_area :name, class: 'form-control'
+
+  .form-group
+    = form.label :description, class: 'form-label'
+    = form.text_area :description, class: 'form-control'
+
+  div
+    = form.submit
